@@ -21,7 +21,6 @@ import com.pepperonas.jxaesprefs.utils.Log;
 import junit.framework.TestCase;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,20 +42,20 @@ public class JxAesPrefsTest extends TestCase {
     }
 
 
-    public void testLaunchCounter() {
-        assertEquals(0, AesPrefs.getLaunchCounter());
-        AesPrefs.initOrIncrementLaunchCounter();
-        AesPrefs.initOrIncrementLaunchCounter();
-        AesPrefs.initOrIncrementLaunchCounter();
+    //    public void testLaunchCounter() {
+    //        assertEquals(0, AesPrefs.getLaunchCounter());
+    //        AesPrefs.initOrIncrementLaunchCounter();
+    //        AesPrefs.initOrIncrementLaunchCounter();
+    //        AesPrefs.initOrIncrementLaunchCounter();
+    //
+    //        assertTrue(AesPrefs.getLaunchCounter() > 1);
+    //    }
 
-        assertTrue(AesPrefs.getLaunchCounter() > 1);
-    }
 
-
-    public void testInitInstallationDate() {
-        AesPrefs.initInstallationDate();
-        Log.d(TAG, "testInitInstallationDate " + new Date(AesPrefs.getInstallationDate()));
-    }
+    //    public void testInitInstallationDate() {
+    //        AesPrefs.initInstallationDate();
+    //        Log.d(TAG, "testInitInstallationDate " + new Date(AesPrefs.getInstallationDate()));
+    //    }
 
 
     public void testString() {
@@ -92,48 +91,6 @@ public class JxAesPrefsTest extends TestCase {
     public void testLong() {
         AesPrefs.putLong("long_key", 123456789101112L);
         assertEquals(123456789101112L, AesPrefs.getLong("long_key", 0));
-    }
-
-
-    public void testInitString() {
-        AesPrefs.initString("init_string_key", "Test initial string");
-        AesPrefs.initString("init_string_key", "Wipe initial string");
-        assertEquals("Test initial string", AesPrefs.get("init_string_key", "defaultValue"));
-    }
-
-
-    public void testInitInt() {
-        AesPrefs.initInt("init_int_key", 42);
-        AesPrefs.initInt("init_int_key", -2);
-        assertEquals(42, AesPrefs.getInt("init_int_key", 0));
-    }
-
-
-    public void testInitBoolean() {
-        AesPrefs.initBoolean("init_boolean_key", true);
-        AesPrefs.initBoolean("init_boolean_key", false);
-        assertEquals(true, AesPrefs.getBoolean("init_boolean_key", false));
-    }
-
-
-    public void testInitFloat() {
-        AesPrefs.initFloat("init_float_key", 1.23f);
-        AesPrefs.initFloat("init_float_key", 3.21f);
-        assertEquals(1.23f, AesPrefs.getFloat("init_float_key", 0.0f));
-    }
-
-
-    public void testInitDouble() {
-        AesPrefs.initDouble("init_double_key", 15.151515D);
-        AesPrefs.initDouble("init_double_key", 51.515151D);
-        assertEquals(15.151515D, AesPrefs.getDouble("init_double_key", 15.151515D));
-    }
-
-
-    public void testInitLong() {
-        AesPrefs.initLong("init_long_key", 98765432111L);
-        AesPrefs.initLong("init_long_key", 12345678999L);
-        assertEquals(98765432111L, AesPrefs.getLong("init_long_key", 98765432111L));
     }
 
 
